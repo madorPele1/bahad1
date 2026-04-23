@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אלופת הטריוויה</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>אלופת הטריוויה</h1>
+        
+        <div id="category-screen" class="screen">
+            <div class="settings-group">
+                <h3>כמה שאלות תרצי?</h3>
+                <select id="question-count">
+                    <option value="5">5 שאלות</option>
+                    <option value="10" selected>10 שאלות</option>
+                    <option value="20">20 שאלות</option>
+                    <option value="999">כל השאלות במאגר</option>
+                </select>
+            </div>
+
+            <h3>בחרי נושא למשחק:</h3>
+            <div class="category-buttons">
+                <button onclick="prepareGame('maps')">ידיעת הארץ ומפות</button>
+                <button onclick="prepareGame('heritage')">מורשת וציונות</button>
+                <button onclick="prepareGame('military_and_medical')">צבא ועזרה ראשונה</button>
+                <button onclick="prepareGame('history_dates')">היסטוריה ותאריכים</button>
+                <button onclick="prepareGame('tradition_and_general')">מסורת וכללי</button>
+                <button onclick="prepareGame('all')" class="highlight">הכל מהכל (רנדומלי)</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <span id="progress">שאלה 1 מתוך X</span>
+                <span id="score">ניקוד: 0</span>
+            </div>
+            
+            <div class="question-container">
+                <p id="question-text">טוען שאלה...</p>
+            </div>
+
+            <div id="options-container" class="options-grid"></div>
+            </div>
+
+        <div id="result-screen" class="screen hidden">
+            <h2>כל הכבוד!</h2>
+            <p id="final-score">הציון שלך הוא: 0 מתוך 0</p>
+            <button onclick="resetGame()" class="highlight">חזרה לתפריט</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

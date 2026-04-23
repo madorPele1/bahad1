@@ -1,0 +1,186 @@
+/* ... כל הקוד הקודם נשאר זהה, הוספתי רק את זה: */
+ :root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --success-color: #2ec4b6;
+    --danger-color: #e71d36;
+    --text-color: #2b2d42;
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+h1 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.screen {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* כפתורים */
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+button:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.category-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button.highlight {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+    grid-column: span 2;
+}
+
+button.highlight:hover {
+    background: #0f4c6c;
+}
+
+/* מבנה המשחק */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #6c757d;
+}
+
+.question-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+    border-right: 5px solid var(--secondary-color);
+}
+
+#question-text {
+    font-size: 1.3rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.options-grid button {
+    text-align: right;
+    background: #fff;
+    border-color: #dee2e6;
+    color: var(--text-color);
+}
+
+.options-grid button:hover {
+    background: #f1f3f5;
+    color: var(--text-color);
+}
+
+.options-grid button.correct {
+    background-color: var(--success-color) !important;
+    color: white !important;
+    border-color: var(--success-color) !important;
+}
+
+.options-grid button.wrong {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+    border-color: var(--danger-color) !important;
+}
+
+#next-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+    .category-buttons {
+        grid-template-columns: 1fr;
+    }
+    button.highlight {
+        grid-column: span 1;
+    }
+}
+
+.settings-group {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+}
+
+select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 200px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* ביטול אפקט הריחוף על כפתור שכבר נלחץ כדי שלא יבלבל */
+.options-grid button.correct, 
+.options-grid button.wrong {
+    pointer-events: none;
+    transform: none !important;
+}
